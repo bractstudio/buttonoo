@@ -2,17 +2,22 @@
 <!-- Converted from icon/adaptive-foreground-432.svg. The glyph is a centre dot
      with four radiating arms and a fifth that leaves the ring as an arrow; the
      arrow arm must stay pointing up. One stroke weight throughout (40, arrowhead
-     34), round caps and joins, no frame. -->
+     34), round caps and joins, no frame.
+
+     The transform fits the mark inside the 264px circle that survives every
+     launcher mask (circle, squircle, teardrop, rounded square). Only the centre
+     circle of the 432 foreground is guaranteed — not a 288px square — so a mark
+     sized to the square loses its diagonal tips on a round mask. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="432"
     android:viewportHeight="432">
     <group
-        android:translateX="1.9"
-        android:translateY="2.2"
-        android:scaleX="0.8362"
-        android:scaleY="0.8362">
+        android:translateX="40.91"
+        android:translateY="25.18"
+        android:scaleX="0.6839"
+        android:scaleY="0.6839">
 
         <path
             android:strokeColor="#0A0A0A"

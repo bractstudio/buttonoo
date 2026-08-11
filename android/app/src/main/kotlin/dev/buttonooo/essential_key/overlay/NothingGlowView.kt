@@ -156,7 +156,7 @@ class NothingGlowView @JvmOverloads constructor(
         try {
             accentColor = Color.parseColor(accentHex)
         } catch (e: Exception) {
-            accentColor = Color.parseColor("#D71921")
+            accentColor = Color.parseColor("#FFD300")
         }
         glowEnabled = glow
         currentEdge = edge

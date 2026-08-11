@@ -224,6 +224,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             size: 16,
                           ),
                         ),
+                        SlabTile(
+                          onTap: _openMoreApps,
+                          leading: Icon(
+                            PhosphorIcons.squaresFour(),
+                            color: NothingTheme.txtSecondary(context),
+                            size: 18,
+                          ),
+                          title: 'More apps',
+                          subtitle: 'Other things we have built',
+                          trailing: Icon(
+                            PhosphorIcons.arrowUpRight(),
+                            color: NothingTheme.txtMuted(context),
+                            size: 16,
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(height: 24),
@@ -237,6 +252,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
     );
+  }
+
+  /// Bract Studio's developer page. Tries the Play Store app first — the
+  /// market: scheme opens it directly — and falls back to the web listing on
+  /// devices without Play installed, which is most of the F-Droid audience.
+  Future<void> _openMoreApps() async {
+    const devId = '4892549832807036197';
+    final market = Uri.parse('market://dev?id=$devId');
+    final web = Uri.parse('https://play.google.com/store/apps/dev?id=$devId');
+
+    if (await canLaunchUrl(market)) {
+      if (await launchUrl(market, mode: LaunchMode.externalApplication)) return;
+    }
+    if (await canLaunchUrl(web)) {
+      await launchUrl(web, mode: LaunchMode.externalApplication);
+    }
   }
 
   Widget _buildDiagnosticsTrailing(BuildContext context, ServiceStatus? status) {

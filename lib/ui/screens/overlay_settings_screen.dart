@@ -486,7 +486,7 @@ class _CustomColorPickerState extends State<CustomColorPicker> {
     try {
       color = Color(int.parse('FF${widget.initialHex.replaceAll('#', '')}', radix: 16));
     } catch (_) {
-      color = const Color(0xFFD71921);
+      color = const Color(0xFFFFD300);
     }
     final hsv = HSVColor.fromColor(color);
     _hue = hsv.hue;

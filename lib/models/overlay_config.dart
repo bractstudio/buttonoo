@@ -19,7 +19,7 @@ class OverlayConfig {
   const OverlayConfig({
     this.enabled = true,
     this.style = 'nothing',
-    this.accentHex = '#D71921',
+    this.accentHex = '#FFD300',
     this.glow = true,
     this.holdMs = 700,
     this.panelSize = 'Regular',
@@ -36,7 +36,7 @@ class OverlayConfig {
     return OverlayConfig(
       enabled: json['enabled'] as bool? ?? true,
       style: json['style'] as String? ?? 'nothing',
-      accentHex: json['accent'] as String? ?? '#D71921',
+      accentHex: json['accent'] as String? ?? '#FFD300',
       glow: json['glow'] as bool? ?? true,
       holdMs: json['holdMs'] as int? ?? 700,
       panelSize: json['panelSize'] as String? ?? 'Regular',

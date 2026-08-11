@@ -9,7 +9,7 @@ import org.json.JSONObject
 data class OverlayConfig(
     val enabled: Boolean = true,
     val style: String = "nothing", // "nothing" or "stock"
-    val accentHex: String = "#D71921",
+    val accentHex: String = "#FFD300",
     val glow: Boolean = true,
     val holdMs: Long = 700L,
     val panelSize: String = "Regular", // "Small", "Regular", "Large" — seeds the dp values below
@@ -142,7 +142,7 @@ object ConfigJson {
             OverlayConfig(
                 enabled = obj.optBoolean("enabled", true),
                 style = obj.optString("style", "nothing"),
-                accentHex = obj.optString("accent", "#D71921"),
+                accentHex = obj.optString("accent", "#FFD300"),
                 glow = obj.optBoolean("glow", true),
                 holdMs = obj.optLong("holdMs", 700L),
                 panelSize = obj.optString("panelSize", "Regular"),
