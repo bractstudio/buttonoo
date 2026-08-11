@@ -1,0 +1,50 @@
+The Essential Key on Nothing and CMF phones does one thing out of the box. buttonoo
+gives it five.
+
+Single, double, triple and quadruple press, plus hold — map each one independently to:
+
+* Launch an app, a shortcut, or a specific activity
+* Toggle the torch
+* Change volume or screen brightness
+* Cycle the ringer mode
+* Fire the assistant
+* Show a column of apps to pick from
+
+An edge overlay confirms what fired, so you always know which pattern the phone read.
+
+<b>How it works</b>
+
+Android only exposes hardware key events to accessibility services, so buttonoo runs
+one. The service matches a single raw scan code, classifies the press pattern, and
+runs the action you mapped to it. It does not request permission to retrieve window
+content, and its accessibility event handler is empty — it cannot read screen content,
+text fields, or any other keystroke.
+
+<b>Freeing the single press</b>
+
+Nothing OS claims the single press for Essential Space at the system level, and an
+accessibility service cannot take it back. Reclaiming it means disabling the system
+packages that hold it. buttonoo walks you through four routes — deep links to each
+package's App Info page, wireless ADB paired from the phone itself, Shizuku, or manual
+ADB commands — and reverses all of it from inside the app. Nothing is uninstalled.
+
+Double, triple, quadruple and long press need none of this. The accessibility
+permission is enough.
+
+<b>Privacy</b>
+
+No network use at runtime, no analytics, no accounts, no trackers. Your configuration
+stays in local Android storage. The INTERNET permission exists only for the built-in
+wireless ADB route, which talks to the phone's own adbd over loopback.
+
+<b>Requirements</b>
+
+A Nothing or CMF phone with an Essential Key, running Android 13 (API 33) or newer.
+Other devices with an unmapped hardware key may work — buttonoo matches on the raw
+scan code and nothing about it is specific to Nothing hardware — but this is untested.
+
+<b>Not affiliated with Nothing</b>
+
+buttonoo is not affiliated with, endorsed by, or connected to Nothing Technology
+Limited. "Nothing", "CMF" and "Essential Space" are their trademarks, used here only
+to describe the hardware and software this app interoperates with.

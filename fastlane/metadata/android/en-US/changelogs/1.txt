@@ -1,0 +1,9 @@
+First release.
+
+Map single, double, triple and quadruple press plus hold on the Essential Key to
+apps, shortcuts, activities, torch, volume, brightness, ringer mode, the assistant,
+or an app picker. Edge overlay confirms what fired.
+
+Includes four routes for reclaiming the single press from Essential Space — App Info
+deep links, built-in wireless ADB, Shizuku, or manual ADB — all reversible from
+inside the app.

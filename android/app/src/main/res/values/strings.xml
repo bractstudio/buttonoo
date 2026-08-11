@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">buttonoo</string>
+    <string name="service_label">buttonoo key service</string>
+    <string name="service_description">Watches for presses of the Essential Key and runs the action you assigned. Does not read or collect screen content.</string>
+    <string name="pairing_code_hint">Enter 6-digit wireless pairing code</string>
+    <string name="pair">Pair</string>
+</resources>

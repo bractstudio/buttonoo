@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fixed in both themes: the mark is drawn in ink, and an adaptive icon
+         background does not follow the system theme. -->
+    <color name="ic_launcher_background">#FFE600</color>
+</resources>

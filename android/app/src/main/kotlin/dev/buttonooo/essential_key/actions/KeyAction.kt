@@ -1,0 +1,25 @@
+package dev.buttonooo.essential_key.actions
+
+sealed class KeyAction {
+    object None : KeyAction()
+    object ToggleFlashlight : KeyAction()
+    object ToggleRotationLock : KeyAction()
+    object RingerCycle : KeyAction()
+    object ToggleDnd : KeyAction()
+    object VoiceAssistant : KeyAction()
+    object VolumeUp : KeyAction()
+    object VolumeDown : KeyAction()
+    object VolumeMute : KeyAction()
+    object VolumeSlider : KeyAction()
+    object BrightnessUp : KeyAction()
+    object BrightnessDown : KeyAction()
+    object MediaPlayPause : KeyAction()
+    object MediaNext : KeyAction()
+    object MediaPrev : KeyAction()
+    object TakeScreenshot : KeyAction()
+    object LockScreen : KeyAction()
+    data class LaunchApp(val packageName: String) : KeyAction()
+    data class LaunchShortcut(val packageName: String, val shortcutId: String) : KeyAction()
+    data class LaunchActivity(val packageName: String, val className: String) : KeyAction()
+    data class AppsColumn(val packageNames: List<String>) : KeyAction()
+}

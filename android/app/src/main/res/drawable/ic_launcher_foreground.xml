@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from icon/adaptive-foreground-432.svg. The glyph is a centre dot
+     with four radiating arms and a fifth that leaves the ring as an arrow; the
+     arrow arm must stay pointing up. One stroke weight throughout (40, arrowhead
+     34), round caps and joins, no frame. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="432"
+    android:viewportHeight="432">
+    <group
+        android:translateX="1.9"
+        android:translateY="2.2"
+        android:scaleX="0.8362"
+        android:scaleY="0.8362">
+
+        <path
+            android:strokeColor="#0A0A0A"
+            android:strokeWidth="40"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:pathData="M343.5,250.6 L408.2,229.6" />
+        <path
+            android:strokeColor="#0A0A0A"
+            android:strokeWidth="40"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:pathData="M310.1,353.4 L350,408.4" />
+        <path
+            android:strokeColor="#0A0A0A"
+            android:strokeWidth="40"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:pathData="M201.9,353.4 L162,408.4" />
+        <path
+            android:strokeColor="#0A0A0A"
+            android:strokeWidth="40"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:pathData="M168.5,250.6 L103.8,229.6" />
+        <path
+            android:strokeColor="#0A0A0A"
+            android:strokeWidth="40"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:pathData="M256,187 L256,129" />
+        <path
+            android:strokeColor="#0A0A0A"
+            android:strokeWidth="34"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:pathData="M219.3,155.4 L256,103 L292.7,155.4" />
+
+        <path
+            android:fillColor="#0A0A0A"
+            android:pathData="M256,279 m-52,0 a52,52 0 1,1 104,0 a52,52 0 1,1 -104,0" />
+    </group>
+</vector>
