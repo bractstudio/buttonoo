@@ -8,11 +8,13 @@ import '../theme/nothing_type.dart';
 import '../widgets/section_label.dart';
 import '../widgets/slab_group.dart';
 import '../widgets/slab_tile.dart';
+import '../../models/status.dart';
+import '../../state/app_scope.dart';
 import '../widgets/app_sheet.dart';
 import '../widgets/donation_sheet.dart';
+import '../widgets/nothing_segmented_control.dart';
+import '../widgets/diagnostics_sheet.dart';
 import 'about_screen.dart';
-import 'backup_screen.dart';
-import 'diagnostics_screen.dart';
 import 'unlock/unlock_screen.dart';
 import 'legal_screen.dart';
 
@@ -45,6 +47,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final currentThemeMode = NothingTheme.themeModeNotifier.value;
+    final permissions = AppScope.permissionsOf(context);
+    final status = permissions.status;
 
     return Scaffold(
       backgroundColor: NothingTheme.bg(context),
@@ -53,10 +57,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
           children: [
             // Top Bar
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
               child: Row(
                 children: [
                   IconButton(
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(),
                     icon: Icon(
                       PhosphorIcons.arrowLeft(),
                       color: NothingTheme.txtPrimary(context),
@@ -64,7 +70,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     onPressed: () => Navigator.pop(context),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 16),
                   Text(
                     'SETTINGS',
                     style: NothingType.doto(
@@ -79,15 +85,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
 
             Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(20.0),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 18, 20, 32),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // APPEARANCE SECTION
                     const SectionLabel(
                       text: 'APPEARANCE',
-                      padding: EdgeInsets.only(left: 4, bottom: 12),
+                      padding: EdgeInsets.only(bottom: 12),
                     ),
                     SlabGroup(
                       children: [
@@ -106,27 +112,42 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 ),
                               ),
                               const SizedBox(height: 12),
-                              Row(
-                                children: [
-                                  _themePill(
-                                    label: 'Dark',
-                                    icon: PhosphorIcons.moon(),
-                                    selected: currentThemeMode == ThemeMode.dark,
-                                    onTap: () => _setThemeMode(ThemeMode.dark),
-                                  ),
-                                  _themePill(
-                                    label: 'Light',
-                                    icon: PhosphorIcons.sun(),
-                                    selected: currentThemeMode == ThemeMode.light,
-                                    onTap: () => _setThemeMode(ThemeMode.light),
-                                  ),
-                                  _themePill(
-                                    label: 'System',
-                                    icon: PhosphorIcons.deviceMobile(),
-                                    selected: currentThemeMode == ThemeMode.system,
-                                    onTap: () => _setThemeMode(ThemeMode.system),
-                                  ),
-                                ],
+                              NothingSegmentedControl<ThemeMode>(
+                                values: const [ThemeMode.dark, ThemeMode.light, ThemeMode.system],
+                                selectedValue: currentThemeMode,
+                                childBuilder: (mode, selected) => Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      mode == ThemeMode.dark
+                                          ? PhosphorIcons.moon()
+                                          : mode == ThemeMode.light
+                                              ? PhosphorIcons.sun()
+                                              : PhosphorIcons.deviceMobile(),
+                                      size: 16,
+                                      color: selected
+                                          ? NothingTheme.pillActiveFg(context)
+                                          : NothingTheme.txtSecondary(context),
+                                    ),
+                                    const SizedBox(width: 6),
+                                    Text(
+                                      mode == ThemeMode.dark
+                                          ? 'Dark'
+                                          : mode == ThemeMode.light
+                                              ? 'Light'
+                                              : 'System',
+                                      style: NothingType.archivo(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: selected
+                                            ? NothingTheme.pillActiveFg(context)
+                                            : NothingTheme.txtSecondary(context),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                onChanged: _setThemeMode,
                               ),
                             ],
                           ),
@@ -138,7 +159,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     // APP MANAGEMENT SECTION
                     const SectionLabel(
                       text: 'APP MANAGEMENT',
-                      padding: EdgeInsets.only(left: 4, bottom: 12),
+                      padding: EdgeInsets.only(bottom: 12),
                     ),
                     SlabGroup(
                       children: [
@@ -161,40 +182,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           ),
                         ),
                         SlabTile(
-                          onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (_) => const DiagnosticsScreen()),
+                          onTap: () => showAppSheet(
+                            context: context,
+                            builder: (_) => const DiagnosticsSheet(),
                           ),
                           leading: Icon(
                             PhosphorIcons.info(),
                             color: NothingTheme.txtSecondary(context),
                             size: 18,
                           ),
-                          title: 'Diagnostics & Learn mode',
-                          subtitle: 'Permissions, key test & logs',
-                          trailing: Icon(
-                            PhosphorIcons.caretRight(),
-                            color: NothingTheme.txtMuted(context),
-                            size: 16,
-                          ),
-                        ),
-                        SlabTile(
-                          onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (_) => const BackupScreen()),
-                          ),
-                          leading: Icon(
-                            PhosphorIcons.arrowsDownUp(),
-                            color: NothingTheme.txtSecondary(context),
-                            size: 18,
-                          ),
-                          title: 'Backup & Restore',
-                          subtitle: 'Export / import JSON config',
-                          trailing: Icon(
-                            PhosphorIcons.caretRight(),
-                            color: NothingTheme.txtMuted(context),
-                            size: 16,
-                          ),
+                          title: 'Diagnostics',
+                          subtitle: 'Check permission status',
+                          trailing: _buildDiagnosticsTrailing(context, status),
                         ),
                       ],
                     ),
@@ -203,7 +202,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     // ABOUT & SUPPORT SECTION
                     const SectionLabel(
                       text: 'ABOUT & SUPPORT',
-                      padding: EdgeInsets.only(left: 4, bottom: 12),
+                      padding: EdgeInsets.only(bottom: 12),
                     ),
                     SlabGroup(
                       children: [
@@ -212,10 +211,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             context,
                             MaterialPageRoute(builder: (_) => const AboutScreen()),
                           ),
-                          leading: Image.asset(
-                            'assets/images/buttonoo_logo_inverted.png',
-                            width: 20,
-                            height: 20,
+                          leading: Icon(
+                            PhosphorIcons.info(),
+                            color: NothingTheme.txtSecondary(context),
+                            size: 18,
                           ),
                           title: 'About buttonoo',
                           subtitle: 'v1.0.0 (Build 1) · Bract Studio',
@@ -227,7 +226,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 32),
+                    const SizedBox(height: 24),
 
                     _buildPremiumFooter(context),
                   ],
@@ -237,6 +236,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildDiagnosticsTrailing(BuildContext context, ServiceStatus? status) {
+    final hasMissing = status == null || status.grantedCount < status.permissionCount;
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (hasMissing) ...[
+          Container(
+            width: 7,
+            height: 7,
+            decoration: const BoxDecoration(
+              color: NothingTheme.accentRed,
+              shape: BoxShape.circle,
+            ),
+          ),
+          const SizedBox(width: 8),
+        ],
+        Icon(
+          PhosphorIcons.caretRight(),
+          color: NothingTheme.txtMuted(context),
+          size: 16,
+        ),
+      ],
     );
   }
 
@@ -395,48 +420,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
     );
   }
-
-  Widget _themePill({
-    required String label,
-    required IconData icon,
-    required bool selected,
-    required VoidCallback onTap,
-  }) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          height: 48,
-          margin: const EdgeInsets.symmetric(horizontal: 4),
-          decoration: BoxDecoration(
-            color: selected ? NothingTheme.pillActiveBg(context) : NothingTheme.divider(context),
-            borderRadius: BorderRadius.circular(999),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                icon,
-                size: 16,
-                color: selected
-                    ? NothingTheme.pillActiveFg(context)
-                    : NothingTheme.txtSecondary(context),
-              ),
-              const SizedBox(width: 6),
-              Text(
-                label,
-                style: NothingType.archivo(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: selected
-                      ? NothingTheme.pillActiveFg(context)
-                      : NothingTheme.txtSecondary(context),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }
+
+

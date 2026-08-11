@@ -5,7 +5,7 @@ import '../theme/nothing_theme.dart';
 import '../theme/nothing_type.dart';
 
 const String kBractStudioUrl = 'https://bractstudio.com';
-const String kCoffeeUrl = 'https://buymeacoffee.com/searcho';
+const String kCoffeeUrl = 'https://buymeacoffee.com/bractstudio';
 const String kSupportEmail = 'buttonoo@bractstudio.com';
 
 class DonationSheet extends StatelessWidget {

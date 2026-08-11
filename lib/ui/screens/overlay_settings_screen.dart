@@ -13,6 +13,7 @@ import '../theme/nothing_type.dart';
 import '../widgets/app_sheet.dart';
 import '../widgets/searcho_slider_tile.dart';
 import '../widgets/section_label.dart';
+import '../widgets/nothing_segmented_control.dart';
 import '../widgets/slab_group.dart';
 
 /// Overlay settings.
@@ -254,7 +255,7 @@ class _OverlaySettingsScreenState extends State<OverlaySettingsScreen> with Widg
           style: NothingType.subtitle(color: NothingTheme.txtSecondary(context)),
         ),
         const SizedBox(height: 14),
-        _NothingSegmentedControl<String>(
+        NothingSegmentedControl<String>(
           values: const ['left', 'right'],
           selectedValue: _edge,
           childBuilder: (side, selected) => Text(
@@ -322,7 +323,7 @@ class _OverlaySettingsScreenState extends State<OverlaySettingsScreen> with Widg
           Row(
             children: [
               Expanded(
-                child: _NothingSegmentedControl<(String, String)>(
+                child: NothingSegmentedControl<(String, String)>(
                   values: presets,
                   selectedValue: selectedPreset,
                   childBuilder: (p, selected) => Row(
@@ -378,7 +379,7 @@ class _OverlaySettingsScreenState extends State<OverlaySettingsScreen> with Widg
           style: NothingType.subtitle(color: NothingTheme.txtSecondary(context)),
         ),
         const SizedBox(height: 14),
-        _NothingSegmentedControl<String>(
+        NothingSegmentedControl<String>(
           values: const ['filled', 'stroke', 'transparent'],
           selectedValue: _cfg.cardStyle,
           childBuilder: (style, selected) => Text(
@@ -462,88 +463,6 @@ class _OverlaySettingsScreenState extends State<OverlaySettingsScreen> with Widg
   }
 }
 
-class _NothingSegmentedControl<T> extends StatelessWidget {
-  final List<T> values;
-  final T? selectedValue;
-  final Widget Function(T, bool) childBuilder;
-  final ValueChanged<T> onChanged;
-
-  const _NothingSegmentedControl({
-    required this.values,
-    required this.selectedValue,
-    required this.childBuilder,
-    required this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final selectedIndex = selectedValue == null ? -1 : values.indexOf(selectedValue as T);
-    final hasSelection = selectedIndex != -1;
-
-    return Container(
-      height: 48,
-      decoration: BoxDecoration(
-        color: NothingTheme.divider(context),
-        borderRadius: BorderRadius.circular(999),
-      ),
-      padding: const EdgeInsets.all(4),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          final width = constraints.maxWidth;
-          final tabWidth = (width - 8) / values.length;
-
-          void handleTouch(Offset localPosition) {
-            final fraction = localPosition.dx / width;
-            final index = (fraction * values.length).floor().clamp(0, values.length - 1);
-            if (values[index] != selectedValue) {
-              onChanged(values[index]);
-            }
-          }
-
-          return GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTapDown: (details) => handleTouch(details.localPosition),
-            onHorizontalDragUpdate: (details) => handleTouch(details.localPosition),
-            onHorizontalDragStart: (details) => handleTouch(details.localPosition),
-            child: Stack(
-              children: [
-                if (hasSelection)
-                  AnimatedAlign(
-                    duration: const Duration(milliseconds: 220),
-                    curve: Curves.easeInOutCubic,
-                    alignment: Alignment(
-                      -1.0 + (values.length > 1 ? selectedIndex / (values.length - 1) : 0) * 2.0,
-                      0.0,
-                    ),
-                    child: Container(
-                      width: tabWidth,
-                      height: double.infinity,
-                      decoration: BoxDecoration(
-                        color: NothingTheme.pillActiveBg(context),
-                        borderRadius: BorderRadius.circular(999),
-                      ),
-                    ),
-                  ),
-                Row(
-                  children: [
-                    for (int i = 0; i < values.length; i++)
-                      Expanded(
-                        child: IgnorePointer(
-                          child: Center(
-                            child: childBuilder(values[i], hasSelection && selectedIndex == i),
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
-              ],
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
 
 class CustomColorPicker extends StatefulWidget {
   final String initialHex;

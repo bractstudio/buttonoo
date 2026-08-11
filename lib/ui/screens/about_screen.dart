@@ -12,7 +12,7 @@ import 'legal_screen.dart';
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
-  static const Color nothingRed = Color(0xFFE50000);
+
 
   Future<void> _openLocation() async {
     final url = Uri.parse('https://maps.google.com/?q=Kasaragod,+Kerala');
@@ -100,12 +100,12 @@ class AboutScreen extends StatelessWidget {
                                     width: 40,
                                     height: 40,
                                     decoration: BoxDecoration(
-                                      color: nothingRed.withValues(alpha: 0.12),
+                                      color: NothingTheme.txtPrimary(context).withValues(alpha: 0.1),
                                       shape: BoxShape.circle,
                                     ),
                                     child: Icon(
                                       PhosphorIcons.alien(),
-                                      color: nothingRed,
+                                      color: NothingTheme.txtPrimary(context),
                                       size: 20,
                                     ),
                                   ),
@@ -123,14 +123,14 @@ class AboutScreen extends StatelessWidget {
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                                 decoration: BoxDecoration(
-                                  color: nothingRed.withValues(alpha: 0.12),
+                                  color: NothingTheme.txtPrimary(context).withValues(alpha: 0.08),
                                   borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(color: nothingRed.withValues(alpha: 0.2)),
+                                  border: Border.all(color: NothingTheme.txtPrimary(context).withValues(alpha: 0.15)),
                                 ),
                                 child: Text(
                                   'CREATOR',
                                   style: NothingType.archivo(
-                                    color: nothingRed,
+                                    color: NothingTheme.txtPrimary(context),
                                     fontSize: 9,
                                     fontWeight: FontWeight.bold,
                                     letterSpacing: 1,
@@ -176,14 +176,14 @@ class AboutScreen extends StatelessWidget {
                                     children: [
                                       Icon(
                                         PhosphorIcons.mapPin(),
-                                        color: nothingRed,
+                                        color: NothingTheme.txtPrimary(context),
                                         size: 13,
                                       ),
                                       const SizedBox(width: 5),
                                       Text(
                                         'Kasaragod, Kerala',
                                         style: NothingType.archivo(
-                                          color: nothingRed,
+                                          color: NothingTheme.txtPrimary(context),
                                           fontWeight: FontWeight.bold,
                                           fontSize: 11,
                                         ),
@@ -206,7 +206,7 @@ class AboutScreen extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Material(
-                            color: nothingRed,
+                            color: NothingTheme.pillActiveBg(context),
                             borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
                             child: InkWell(
                               onTap: () {
@@ -223,14 +223,14 @@ class AboutScreen extends StatelessWidget {
                                   children: [
                                     Icon(
                                       PhosphorIcons.coffee(),
-                                      color: Colors.white,
+                                      color: NothingTheme.pillActiveFg(context),
                                       size: 20,
                                     ),
                                     const SizedBox(width: 8),
                                     Text(
                                       'SUPPORT DEVELOPMENT',
                                       style: NothingType.doto(
-                                        color: Colors.white,
+                                        color: NothingTheme.pillActiveFg(context),
                                         fontWeight: FontWeight.bold,
                                         letterSpacing: 0.08,
                                         fontSize: 12,
