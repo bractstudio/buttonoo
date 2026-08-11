@@ -1,0 +1,12 @@
+Fixes.
+
+The camera action did nothing — it decoded to an empty action and never reached
+the executor. It now opens your default camera app.
+
+The Settings page could not be scrolled past the fold.
+
+App shortcuts now explain themselves. Android only lets the default launcher open
+another app's shortcuts, so the picker says so instead of claiming every app
+publishes none.
+
+Haptic intensity uses the same segmented control as the overlay settings.

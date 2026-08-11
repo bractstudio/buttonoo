@@ -3,6 +3,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../app_info.dart';
 import '../theme/nothing_theme.dart';
 import '../theme/nothing_type.dart';
 import '../widgets/section_label.dart';
@@ -217,7 +218,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             size: 18,
                           ),
                           title: 'About buttonoo',
-                          subtitle: 'v1.0.0 (Build 1) · Bract Studio',
+                          subtitle: '${AppInfo.versionLabel} · Bract Studio',
                           trailing: Icon(
                             PhosphorIcons.caretRight(),
                             color: NothingTheme.txtMuted(context),
@@ -310,7 +311,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               'REPORT BUG',
               () async {
                 final Uri emailUri = Uri.parse(
-                  'mailto:buttonoo@bractstudio.com?subject=buttonoo%20Bug%20Report%20(v1.0.0)',
+                  'mailto:buttonoo@bractstudio.com?subject=buttonoo%20Bug%20Report%20(v${AppInfo.versionName})',
                 );
                 if (await canLaunchUrl(emailUri)) {
                   await launchUrl(emailUri, mode: LaunchMode.externalApplication);

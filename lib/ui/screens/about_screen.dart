@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../app_info.dart';
 import '../theme/nothing_theme.dart';
 import '../theme/nothing_type.dart';
 import '../widgets/bract_studio_mark.dart';
@@ -78,7 +79,7 @@ class AboutScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'v1.0.0 (Build 1)',
+                      AppInfo.versionLabel,
                       style: NothingType.archivo(
                         fontSize: 13,
                         color: NothingTheme.txtMuted(context),
