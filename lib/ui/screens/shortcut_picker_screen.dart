@@ -66,6 +66,7 @@ class _ShortcutListScreenState extends State<_ShortcutListScreen> {
   final RemapperChannel _channel = RemapperChannel();
 
   List<Map<String, dynamic>> _shortcuts = const [];
+  bool _hostPermission = true;
   bool _loading = true;
 
   @override
@@ -75,9 +76,13 @@ class _ShortcutListScreenState extends State<_ShortcutListScreen> {
   }
 
   Future<void> _load() async {
-    final shortcuts = await _channel.shortcuts(widget.app.packageName);
+    final canHost = await _channel.shortcutHostPermission();
+    final shortcuts = canHost
+        ? await _channel.shortcuts(widget.app.packageName)
+        : const <Map<String, dynamic>>[];
     if (!mounted) return;
     setState(() {
+      _hostPermission = canHost;
       _shortcuts = shortcuts;
       _loading = false;
     });
@@ -104,6 +109,25 @@ class _ShortcutListScreenState extends State<_ShortcutListScreen> {
   Widget _body() {
     if (_loading) {
       return const Center(child: CircularProgressIndicator(color: NothingTheme.accentRed));
+    }
+    if (!_hostPermission) {
+      return Padding(
+        padding: const EdgeInsets.all(32),
+        child: Center(
+          child: Text(
+            'App shortcuts are unavailable.\n\n'
+            'Android only lets the default launcher read or open another app\'s '
+            'shortcuts, and buttonoo is not a launcher. There is no permission '
+            'to grant — the restriction is built into the platform.\n\n'
+            'Map an app or a specific activity instead.',
+            textAlign: TextAlign.center,
+            style: NothingType.archivo(
+              color: NothingTheme.txtSecondary(context),
+              height: 1.45,
+            ),
+          ),
+        ),
+      );
     }
     if (_shortcuts.isEmpty) {
       return Padding(

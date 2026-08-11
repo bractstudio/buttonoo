@@ -11,6 +11,21 @@ data class ShortcutItem(
 )
 
 class Shortcuts(private val context: Context) {
+    /// Both LauncherApps.getShortcuts and startShortcut are gated on the caller
+    /// holding shortcut host permission, which the platform grants only to the
+    /// current default launcher. Without it getShortcuts throws SecurityException
+    /// and every app looks like it publishes nothing, so ask first and let the UI
+    /// say what is actually wrong.
+    fun hasHostPermission(): Boolean {
+        val launcherApps = context.getSystemService(Context.LAUNCHER_APPS_SERVICE) as? LauncherApps
+            ?: return false
+        return try {
+            launcherApps.hasShortcutHostPermission()
+        } catch (e: Exception) {
+            false
+        }
+    }
+
     fun queryShortcuts(packageName: String): List<ShortcutItem> {
         val launcherApps = context.getSystemService(Context.LAUNCHER_APPS_SERVICE) as? LauncherApps ?: return emptyList()
         return try {

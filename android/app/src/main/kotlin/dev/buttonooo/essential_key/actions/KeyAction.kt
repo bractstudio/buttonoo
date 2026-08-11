@@ -7,6 +7,7 @@ sealed class KeyAction {
     object RingerCycle : KeyAction()
     object ToggleDnd : KeyAction()
     object VoiceAssistant : KeyAction()
+    object OpenCamera : KeyAction()
     object VolumeUp : KeyAction()
     object VolumeDown : KeyAction()
     object VolumeMute : KeyAction()

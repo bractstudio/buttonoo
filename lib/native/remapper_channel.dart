@@ -288,6 +288,13 @@ class RemapperChannel {
     });
   }
 
+  /// False unless buttonoo is the default launcher. The platform gates the whole
+  /// shortcut API on that, so an empty shortcut list means nothing until this is
+  /// checked.
+  Future<bool> shortcutHostPermission() async {
+    return await _m.invokeMethod<bool>('shortcutHostPermission') ?? false;
+  }
+
   Future<List<Map<String, dynamic>>> shortcuts(String pkg) async {
     final res = await _m.invokeListMethod('shortcuts', {'packageName': pkg});
     return (res ?? []).map((e) => Map<String, dynamic>.from(e as Map)).toList();

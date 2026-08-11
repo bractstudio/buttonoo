@@ -5,6 +5,7 @@ import '../../models/key_action.dart';
 import '../../state/app_scope.dart';
 import '../theme/nothing_theme.dart';
 import '../theme/nothing_type.dart';
+import '../widgets/nothing_segmented_control.dart';
 import '../widgets/searcho_slider_tile.dart';
 import '../widgets/section_label.dart';
 import '../widgets/slab_group.dart';
@@ -147,39 +148,23 @@ class GestureTimingScreen extends StatelessWidget {
                               Container(
                                 color: NothingTheme.slab(context),
                                 padding: const EdgeInsets.all(16.0),
-                                child: Row(
-                                  children: ['light', 'medium', 'heavy'].map((level) {
-                                    final isSelected = hapticIntensity.toLowerCase() == level;
-                                    return Expanded(
-                                      child: GestureDetector(
-                                        onTap: () => controller.setHaptics(
-                                          enabled: hapticsEnabled,
-                                          intensity: level,
-                                        ),
-                                        child: Container(
-                                          height: 48,
-                                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                                          decoration: BoxDecoration(
-                                            color: isSelected
-                                                ? NothingTheme.pillActiveBg(context)
-                                                : NothingTheme.divider(context),
-                                            borderRadius: BorderRadius.circular(999),
-                                          ),
-                                          alignment: Alignment.center,
-                                          child: Text(
-                                            level.toUpperCase(),
-                                            style: NothingType.archivo(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w600,
-                                              color: isSelected
-                                                  ? NothingTheme.pillActiveFg(context)
-                                                  : NothingTheme.txtSecondary(context),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  }).toList(),
+                                child: NothingSegmentedControl<String>(
+                                  values: const ['light', 'medium', 'heavy'],
+                                  selectedValue: hapticIntensity.toLowerCase(),
+                                  childBuilder: (level, selected) => Text(
+                                    level.toUpperCase(),
+                                    style: NothingType.archivo(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                      color: selected
+                                          ? NothingTheme.pillActiveFg(context)
+                                          : NothingTheme.txtSecondary(context),
+                                    ),
+                                  ),
+                                  onChanged: (level) => controller.setHaptics(
+                                    enabled: hapticsEnabled,
+                                    intensity: level,
+                                  ),
                                 ),
                               ),
                             ],

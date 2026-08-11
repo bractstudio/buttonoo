@@ -65,6 +65,7 @@ object ConfigJson {
                 "ring_vibrate" -> KeyAction.RingerCycle
                 "dnd" -> KeyAction.ToggleDnd
                 "assistant" -> KeyAction.VoiceAssistant
+                "camera" -> KeyAction.OpenCamera
                 "volume_up" -> KeyAction.VolumeUp
                 "volume_down" -> KeyAction.VolumeDown
                 "volume_mute" -> KeyAction.VolumeMute
@@ -104,6 +105,7 @@ object ConfigJson {
             is KeyAction.RingerCycle -> { obj.put("type", "quick"); obj.put("id", "ring_vibrate") }
             is KeyAction.ToggleDnd -> { obj.put("type", "quick"); obj.put("id", "dnd") }
             is KeyAction.VoiceAssistant -> { obj.put("type", "quick"); obj.put("id", "assistant") }
+            is KeyAction.OpenCamera -> { obj.put("type", "quick"); obj.put("id", "camera") }
             is KeyAction.VolumeUp -> { obj.put("type", "quick"); obj.put("id", "volume_up") }
             is KeyAction.VolumeDown -> { obj.put("type", "quick"); obj.put("id", "volume_down") }
             is KeyAction.VolumeMute -> { obj.put("type", "quick"); obj.put("id", "volume_mute") }

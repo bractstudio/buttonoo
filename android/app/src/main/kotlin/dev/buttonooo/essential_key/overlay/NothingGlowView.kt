@@ -724,6 +724,7 @@ class NothingGlowView @JvmOverloads constructor(
             }
             is KeyAction.ToggleDnd -> "\uE330"
             is KeyAction.VoiceAssistant -> "\uE326"
+            is KeyAction.OpenCamera -> "\uE10E"
             is KeyAction.VolumeUp -> "\uE44A"
             is KeyAction.VolumeDown -> "\uE44C"
             is KeyAction.VolumeMute -> "\uE45A"

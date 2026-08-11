@@ -14,6 +14,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Process
 import android.os.SystemClock
+import android.provider.MediaStore
 import android.provider.Settings
 import android.view.KeyEvent
 import android.widget.Toast
@@ -73,6 +74,7 @@ class ActionExecutor(
                         service?.performGlobalAction(AccessibilityService.GLOBAL_ACTION_LOCK_SCREEN)
                     }
                 }
+                is KeyAction.OpenCamera -> openCamera()
                 is KeyAction.LaunchApp -> launchApp(action.packageName)
                 is KeyAction.LaunchShortcut -> launchShortcut(action.packageName, action.shortcutId)
                 is KeyAction.LaunchActivity -> launchActivity(action.packageName, action.className)
@@ -188,6 +190,25 @@ class ActionExecutor(
         audioManager.dispatchMediaKeyEvent(up)
     }
 
+    /// STILL_IMAGE_CAMERA is the intent the hardware camera key uses, so it
+    /// honours whichever camera app the user has set as default. Falls back to
+    /// the generic IMAGE_CAPTURE on the handful of devices that leave the first
+    /// one unresolved.
+    private fun openCamera() {
+        val candidates = listOf(
+            Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA),
+            Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        )
+        for (intent in candidates) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            if (intent.resolveActivity(context.packageManager) != null) {
+                context.startActivity(intent)
+                return
+            }
+        }
+        showToast("No camera app found")
+    }
+
     private fun launchApp(packageName: String) {
         val intent = context.packageManager.getLaunchIntentForPackage(packageName)
         if (intent != null) {
@@ -200,12 +221,17 @@ class ActionExecutor(
 
     private fun launchShortcut(packageName: String, shortcutId: String) {
         val launcher = context.getSystemService(Context.LAUNCHER_APPS_SERVICE) as? LauncherApps
-        if (launcher != null) {
-            try {
-                launcher.startShortcut(packageName, shortcutId, null, null, Process.myUserHandle())
-            } catch (e: Exception) {
-                showToast("Failed to launch shortcut: ${e.localizedMessage}")
-            }
+            ?: return
+        // startShortcut needs shortcut host permission, which only the default
+        // launcher has. Say so rather than surfacing a raw SecurityException.
+        if (!launcher.hasShortcutHostPermission()) {
+            showToast("Shortcuts only work from the default launcher")
+            return
+        }
+        try {
+            launcher.startShortcut(packageName, shortcutId, null, null, Process.myUserHandle())
+        } catch (e: Exception) {
+            showToast("Failed to launch shortcut: ${e.localizedMessage}")
         }
     }
 
@@ -247,6 +273,7 @@ class ActionExecutor(
                 }
                 is KeyAction.ToggleDnd -> if (dnd) "DND On" else "DND Off"
                 is KeyAction.VoiceAssistant -> "Assistant"
+                is KeyAction.OpenCamera -> "Camera"
                 is KeyAction.MediaPlayPause -> "Play/Pause"
                 is KeyAction.MediaNext -> "Next Track"
                 is KeyAction.MediaPrev -> "Previous Track"

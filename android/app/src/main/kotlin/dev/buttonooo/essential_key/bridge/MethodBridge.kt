@@ -371,6 +371,11 @@ class MethodBridge(
                 withContext(Dispatchers.Main) { result.success(bytes) }
             }
 
+            "shortcutHostPermission" -> {
+                val ok = shortcutsQuery.hasHostPermission()
+                withContext(Dispatchers.Main) { result.success(ok) }
+            }
+
             "shortcuts" -> {
                 val pkg = call.argument<String>("packageName") ?: ""
                 val list = shortcutsQuery.queryShortcuts(pkg).map { sc ->
