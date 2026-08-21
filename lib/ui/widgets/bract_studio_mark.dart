@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../theme/nothing_theme.dart';
 import '../theme/nothing_type.dart';
@@ -71,7 +71,7 @@ class BractStudioMark extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               Icon(
-                PhosphorIcons.arrowUpRight(),
+                PhosphorIcons.arrowUpRight,
                 color: labelColor,
                 size: 14,
               ),

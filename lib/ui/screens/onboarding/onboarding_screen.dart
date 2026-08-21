@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../../native/remapper_channel.dart';
 import '../../theme/nothing_theme.dart';
 import '../../theme/nothing_type.dart';
@@ -273,7 +273,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                         ),
                         child: _agreed
-                            ? Icon(PhosphorIcons.check(), size: 13, color: NothingTheme.accentWhite)
+                            ? Icon(PhosphorIcons.check, size: 13, color: NothingTheme.accentWhite)
                             : null,
                       ),
                       const SizedBox(width: 12),

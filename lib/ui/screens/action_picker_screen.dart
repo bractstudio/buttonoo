@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../models/gesture.dart';
 import '../../models/key_action.dart';
 import '../../state/app_scope.dart';
@@ -85,7 +85,7 @@ class _ActionPickerState extends State<ActionPicker> {
                 onChanged: (q) => setState(() => _searchQuery = q.toLowerCase()),
                 decoration: InputDecoration(
                   icon: Icon(
-                    PhosphorIcons.magnifyingGlass(),
+                    PhosphorIcons.magnifyingGlass,
                     color: NothingTheme.txtMuted(context),
                     size: 18,
                   ),
@@ -105,62 +105,62 @@ class _ActionPickerState extends State<ActionPicker> {
               children: [
                 _buildActionTile(
                   'Toggle flashlight',
-                  PhosphorIcons.flashlight(),
+                  PhosphorIcons.flashlight,
                   const QuickActionSpec('flashlight'),
                 ),
                 _buildActionTile(
                   'Open camera',
-                  PhosphorIcons.camera(),
+                  PhosphorIcons.camera,
                   const QuickActionSpec('camera'),
                 ),
                 _buildActionTile(
                   'Volume up',
-                  PhosphorIcons.speakerHigh(),
+                  PhosphorIcons.speakerHigh,
                   const QuickActionSpec('volume_up'),
                 ),
                 _buildActionTile(
                   'Volume down',
-                  PhosphorIcons.speakerLow(),
+                  PhosphorIcons.speakerLow,
                   const QuickActionSpec('volume_down'),
                 ),
                 _buildActionTile(
                   'Toggle mute',
-                  PhosphorIcons.speakerSlash(),
+                  PhosphorIcons.speakerSlash,
                   const QuickActionSpec('volume_mute'),
                 ),
                 _buildActionTile(
                   'Volume control panel',
-                  PhosphorIcons.sliders(),
+                  PhosphorIcons.sliders,
                   const QuickActionSpec('volume_slider'),
                 ),
                 _buildActionTile(
                   'Increase brightness',
-                  PhosphorIcons.sun(),
+                  PhosphorIcons.sun,
                   const QuickActionSpec('brightness_up'),
                 ),
                 _buildActionTile(
                   'Decrease brightness',
-                  PhosphorIcons.sunDim(),
+                  PhosphorIcons.sunDim,
                   const QuickActionSpec('brightness_down'),
                 ),
                 _buildActionTile(
                   'Cycle ringer mode',
-                  PhosphorIcons.bellRinging(),
+                  PhosphorIcons.bellRinging,
                   const QuickActionSpec('ring_vibrate'),
                 ),
                 _buildActionTile(
                   'Do not disturb',
-                  PhosphorIcons.minusCircle(),
+                  PhosphorIcons.minusCircle,
                   const QuickActionSpec('dnd'),
                 ),
                 _buildActionTile(
                   'Voice assistant',
-                  PhosphorIcons.microphone(),
+                  PhosphorIcons.microphone,
                   const QuickActionSpec('assistant'),
                 ),
                 _buildActionTile(
                   'Media play / pause',
-                  PhosphorIcons.play(),
+                  PhosphorIcons.play,
                   const QuickActionSpec('media_play_pause'),
                 ),
               ],
@@ -184,13 +184,13 @@ class _ActionPickerState extends State<ActionPicker> {
                     if (result != null) _selectAction(result);
                   },
                   leading: Icon(
-                    PhosphorIcons.columns(),
+                    PhosphorIcons.columns,
                     color: NothingTheme.txtSecondary(context),
                     size: 18,
                   ),
                   title: 'Apps Column',
                   trailing: Icon(
-                    PhosphorIcons.caretRight(),
+                    PhosphorIcons.caretRight,
                     color: NothingTheme.txtMuted(context),
                     size: 16,
                   ),
@@ -204,13 +204,13 @@ class _ActionPickerState extends State<ActionPicker> {
                     if (result != null) _selectAction(result);
                   },
                   leading: Icon(
-                    PhosphorIcons.squaresFour(),
+                    PhosphorIcons.squaresFour,
                     color: NothingTheme.txtSecondary(context),
                     size: 18,
                   ),
                   title: 'Launch an app',
                   trailing: Icon(
-                    PhosphorIcons.caretRight(),
+                    PhosphorIcons.caretRight,
                     color: NothingTheme.txtMuted(context),
                     size: 16,
                   ),
@@ -224,13 +224,13 @@ class _ActionPickerState extends State<ActionPicker> {
                     if (result != null) _selectAction(result);
                   },
                   leading: Icon(
-                    PhosphorIcons.arrowSquareOut(),
+                    PhosphorIcons.arrowSquareOut,
                     color: NothingTheme.txtSecondary(context),
                     size: 18,
                   ),
                   title: 'App shortcut',
                   trailing: Icon(
-                    PhosphorIcons.caretRight(),
+                    PhosphorIcons.caretRight,
                     color: NothingTheme.txtMuted(context),
                     size: 16,
                   ),
@@ -244,13 +244,13 @@ class _ActionPickerState extends State<ActionPicker> {
                     if (result != null) _selectAction(result);
                   },
                   leading: Icon(
-                    PhosphorIcons.code(),
+                    PhosphorIcons.code,
                     color: NothingTheme.txtSecondary(context),
                     size: 18,
                   ),
                   title: 'Specific activity',
                   trailing: Icon(
-                    PhosphorIcons.caretRight(),
+                    PhosphorIcons.caretRight,
                     color: NothingTheme.txtMuted(context),
                     size: 16,
                   ),
@@ -258,7 +258,7 @@ class _ActionPickerState extends State<ActionPicker> {
                 SlabTile(
                   onTap: () => _selectAction(const NoneActionSpec()),
                   leading: Icon(
-                    PhosphorIcons.xCircle(),
+                    PhosphorIcons.xCircle,
                     color: NothingTheme.txtSecondary(context),
                     size: 18,
                   ),
@@ -290,7 +290,7 @@ class _ActionPickerState extends State<ActionPicker> {
         size: 18,
       ),
       title: title,
-      trailing: isSelected ? Icon(PhosphorIcons.check(), color: Colors.white, size: 18) : null,
+      trailing: isSelected ? Icon(PhosphorIcons.check, color: Colors.white, size: 18) : null,
     );
   }
 }

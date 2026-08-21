@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../theme/nothing_theme.dart';
 import '../theme/nothing_type.dart';
 import '../widgets/nothing_card.dart';
@@ -28,7 +28,7 @@ class _LegalScreenState extends State<LegalScreen> {
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints(),
                     icon: Icon(
-                      PhosphorIcons.arrowLeft(),
+                      PhosphorIcons.arrowLeft,
                       color: NothingTheme.txtPrimary(context),
                       size: 22,
                     ),
@@ -54,7 +54,7 @@ class _LegalScreenState extends State<LegalScreen> {
                 child: Column(
                   children: [
                     _CollapsibleCard(
-                      icon: PhosphorIcons.shieldCheck(),
+                      icon: PhosphorIcons.shieldCheck,
                       title: 'Privacy Policy',
                       content: Text(
                         'buttonoo operates 100% on-device:\n\n'
@@ -70,7 +70,7 @@ class _LegalScreenState extends State<LegalScreen> {
                       ),
                     ),
                     _CollapsibleCard(
-                      icon: PhosphorIcons.article(),
+                      icon: PhosphorIcons.article,
                       title: 'Terms of Use',
                       content: Text(
                         'By using buttonoo, you agree to the following terms:\n\n'
@@ -85,7 +85,7 @@ class _LegalScreenState extends State<LegalScreen> {
                       ),
                     ),
                     _CollapsibleCard(
-                      icon: PhosphorIcons.fileCode(),
+                      icon: PhosphorIcons.fileCode,
                       title: 'Open Source Licenses',
                       content: Text(
                         'buttonoo is licensed under the GPL-3.0-or-later.\n\n'
@@ -104,7 +104,7 @@ class _LegalScreenState extends State<LegalScreen> {
                       ),
                     ),
                     _CollapsibleCard(
-                      icon: PhosphorIcons.handsClapping(),
+                      icon: PhosphorIcons.handsClapping,
                       title: 'Credits & Acknowledgments',
                       content: Text(
                         '• Creator & Developer: Binge\n'
@@ -179,7 +179,7 @@ class _CollapsibleCardState extends State<_CollapsibleCard> {
                     ),
                   ),
                   Icon(
-                    _expanded ? PhosphorIcons.caretUp() : PhosphorIcons.caretDown(),
+                    _expanded ? PhosphorIcons.caretUp : PhosphorIcons.caretDown,
                     color: NothingTheme.txtMuted(context),
                     size: 16,
                   ),

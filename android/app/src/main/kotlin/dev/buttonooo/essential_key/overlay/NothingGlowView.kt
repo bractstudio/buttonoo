@@ -689,10 +689,10 @@ class NothingGlowView @JvmOverloads constructor(
 
     private val phosphorTypeface by lazy {
         try {
-            Typeface.createFromAsset(context.assets, "flutter_assets/packages/phosphor_flutter/lib/fonts/Phosphor.ttf")
+            Typeface.createFromAsset(context.assets, "flutter_assets/packages/phosphoricons_flutter/lib/fonts/Phosphor.ttf")
         } catch (e: Exception) {
             try {
-                Typeface.createFromAsset(context.assets, "flutter_assets/packages/phosphor_flutter/lib/fonts/Phosphor-Bold.ttf")
+                Typeface.createFromAsset(context.assets, "flutter_assets/packages/phosphoricons_flutter/lib/fonts/Phosphor-Bold.ttf")
             } catch (ex: Exception) {
                 Typeface.DEFAULT
             }

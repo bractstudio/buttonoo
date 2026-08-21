@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../app_info.dart';
 import '../theme/nothing_theme.dart';
@@ -36,7 +36,7 @@ class AboutScreen extends StatelessWidget {
                 children: [
                   IconButton(
                     icon: Icon(
-                      PhosphorIcons.arrowLeft(),
+                      PhosphorIcons.arrowLeft,
                       color: NothingTheme.txtPrimary(context),
                       size: 22,
                     ),
@@ -105,7 +105,7 @@ class AboutScreen extends StatelessWidget {
                                       shape: BoxShape.circle,
                                     ),
                                     child: Icon(
-                                      PhosphorIcons.alien(),
+                                      PhosphorIcons.alien,
                                       color: NothingTheme.txtPrimary(context),
                                       size: 20,
                                     ),
@@ -176,7 +176,7 @@ class AboutScreen extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Icon(
-                                        PhosphorIcons.mapPin(),
+                                        PhosphorIcons.mapPin,
                                         color: NothingTheme.txtPrimary(context),
                                         size: 13,
                                       ),
@@ -223,7 +223,7 @@ class AboutScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
-                                      PhosphorIcons.coffee(),
+                                      PhosphorIcons.coffee,
                                       color: NothingTheme.pillActiveFg(context),
                                       size: 20,
                                     ),
@@ -267,7 +267,7 @@ class AboutScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               Icon(
-                                PhosphorIcons.shieldCheck(),
+                                PhosphorIcons.shieldCheck,
                                 color: NothingTheme.txtSecondary(context),
                                 size: 18,
                               ),
@@ -296,7 +296,7 @@ class AboutScreen extends StatelessWidget {
                                 ),
                               ),
                               Icon(
-                                PhosphorIcons.caretRight(),
+                                PhosphorIcons.caretRight,
                                 color: NothingTheme.txtMuted(context),
                                 size: 16,
                               ),

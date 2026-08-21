@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../models/gesture.dart';
 import '../../models/key_action.dart';
 import '../../state/app_scope.dart';
@@ -36,7 +36,7 @@ class GestureTimingScreen extends StatelessWidget {
                 children: [
                   IconButton(
                     icon: Icon(
-                      PhosphorIcons.arrowLeft(),
+                      PhosphorIcons.arrowLeft,
                       color: NothingTheme.txtPrimary(context),
                       size: 22,
                     ),
