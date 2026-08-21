@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../models/gesture.dart';
 import '../../models/key_action.dart';
 import '../../models/status.dart';
@@ -90,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           IconButton(
                             icon: Icon(
-                              PhosphorIcons.gear(),
+                              PhosphorIcons.gear,
                               color: NothingTheme.txtPrimary(context),
                               size: 24,
                             ),
@@ -143,7 +143,7 @@ class HomeScreen extends StatelessWidget {
                               permissions.refresh();
                             },
                             leading: Icon(
-                              isFreed ? PhosphorIcons.lockKeyOpen() : PhosphorIcons.lockKey(),
+                              isFreed ? PhosphorIcons.lockKeyOpen : PhosphorIcons.lockKey,
                               color: NothingTheme.txtSecondary(context),
                               size: 18,
                             ),
@@ -152,7 +152,7 @@ class HomeScreen extends StatelessWidget {
                                 ? '3 system apps disabled'
                                 : 'Tap to free key from Nothing OS',
                             trailing: Icon(
-                              PhosphorIcons.caretRight(),
+                              PhosphorIcons.caretRight,
                               color: NothingTheme.txtMuted(context),
                               size: 16,
                             ),
@@ -215,7 +215,7 @@ class HomeScreen extends StatelessWidget {
                               permissions.refresh();
                             },
                             leading: Icon(
-                              PhosphorIcons.stack(),
+                              PhosphorIcons.stack,
                               color: NothingTheme.txtSecondary(context),
                               size: 18,
                             ),
@@ -224,7 +224,7 @@ class HomeScreen extends StatelessWidget {
                                 ? 'Glow · Red · 34%'
                                 : '${cfg.overlay.glow ? "Glow" : "Minimal"} · ${_colorHexToName(cfg.overlay.accentHex)} · ${(cfg.anchorFraction * 100).round()}%',
                             trailing: Icon(
-                              PhosphorIcons.caretRight(),
+                              PhosphorIcons.caretRight,
                               color: NothingTheme.txtMuted(context),
                               size: 16,
                             ),
@@ -238,14 +238,14 @@ class HomeScreen extends StatelessWidget {
                               permissions.refresh();
                             },
                             leading: Icon(
-                              PhosphorIcons.clock(),
+                              PhosphorIcons.clock,
                               color: NothingTheme.txtSecondary(context),
                               size: 18,
                             ),
                             title: 'Behaviour',
                             subtitle: 'Timing, lock screen, haptics',
                             trailing: Icon(
-                              PhosphorIcons.caretRight(),
+                              PhosphorIcons.caretRight,
                               color: NothingTheme.txtMuted(context),
                               size: 16,
                             ),
@@ -353,7 +353,7 @@ class HomeScreen extends StatelessWidget {
           Row(
             children: [
               Icon(
-                PhosphorIcons.warning(),
+                PhosphorIcons.warning,
                 color: NothingTheme.accentRed,
                 size: 20,
               ),

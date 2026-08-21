@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../models/app_entry.dart';
 import '../../models/key_action.dart';
 import '../../native/remapper_channel.dart';
@@ -36,14 +36,14 @@ class _ActivityPickerScreenState extends State<ActivityPickerScreen> {
           style: NothingType.doto(fontSize: 18, color: NothingTheme.txtPrimary(context)),
         ),
         leading: IconButton(
-          icon: Icon(PhosphorIcons.arrowLeft(), color: NothingTheme.txtPrimary(context)),
+          icon: Icon(PhosphorIcons.arrowLeft, color: NothingTheme.txtPrimary(context)),
           onPressed: () => Navigator.pop(context),
         ),
       ),
       body: AppListView(
         onSelected: _openActivities,
         trailingBuilder: (context, _) =>
-            Icon(PhosphorIcons.caretRight(), color: NothingTheme.txtMuted(context), size: 16),
+            Icon(PhosphorIcons.caretRight, color: NothingTheme.txtMuted(context), size: 16),
       ),
     );
   }
@@ -89,7 +89,7 @@ class _ActivityListScreenState extends State<_ActivityListScreen> {
           style: NothingType.doto(fontSize: 18, color: NothingTheme.txtPrimary(context)),
         ),
         leading: IconButton(
-          icon: Icon(PhosphorIcons.arrowLeft(), color: NothingTheme.txtPrimary(context)),
+          icon: Icon(PhosphorIcons.arrowLeft, color: NothingTheme.txtPrimary(context)),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -124,7 +124,7 @@ class _ActivityListScreenState extends State<_ActivityListScreen> {
         final shortName = activity['name'] as String? ?? className.split('.').last;
 
         return ListTile(
-          leading: Icon(PhosphorIcons.code(), color: NothingTheme.accentRed),
+          leading: Icon(PhosphorIcons.code, color: NothingTheme.accentRed),
           title: Text(
             shortName,
             style: NothingType.archivo(

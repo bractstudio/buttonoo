@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 
 import '../../native/remapper_channel.dart';
 import '../theme/nothing_theme.dart';
@@ -65,7 +65,7 @@ class _AppIconState extends State<AppIcon> {
       height: widget.size,
       child: _resolved
           ? Icon(
-              PhosphorIcons.appWindow(),
+              PhosphorIcons.appWindow,
               size: widget.size * 0.6,
               color: NothingTheme.txtMuted(context),
             )

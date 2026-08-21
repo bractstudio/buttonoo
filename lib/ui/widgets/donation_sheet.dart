@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../theme/nothing_theme.dart';
 import '../theme/nothing_type.dart';
@@ -40,7 +40,7 @@ class DonationSheet extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
-                    PhosphorIcons.coffee(),
+                    PhosphorIcons.coffee,
                     color: NothingTheme.accentRed,
                     size: 24,
                   ),
@@ -60,19 +60,19 @@ class DonationSheet extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             _LinkTile(
-              icon: PhosphorIcons.coffee(),
+              icon: PhosphorIcons.coffee,
               title: 'Buy me a coffee',
               subtitle: 'Opens in your browser',
               onTap: () => _open(kCoffeeUrl),
             ),
             _LinkTile(
-              icon: PhosphorIcons.envelopeSimple(),
+              icon: PhosphorIcons.envelopeSimple,
               title: 'Get in touch',
               subtitle: kSupportEmail,
               onTap: () => _open('mailto:$kSupportEmail'),
             ),
             _LinkTile(
-              icon: PhosphorIcons.globeSimple(),
+              icon: PhosphorIcons.globeSimple,
               title: 'Bract Studio',
               subtitle: 'bractstudio.com',
               onTap: () => _open(kBractStudioUrl),
@@ -155,7 +155,7 @@ class _LinkTile extends StatelessWidget {
                   ),
                 ),
                 Icon(
-                  PhosphorIcons.arrowUpRight(),
+                  PhosphorIcons.arrowUpRight,
                   color: NothingTheme.txtMuted(context),
                   size: 16,
                 ),

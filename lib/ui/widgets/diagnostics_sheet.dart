@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../native/remapper_channel.dart';
 import '../../state/app_scope.dart';
 import '../theme/nothing_theme.dart';
@@ -70,7 +70,7 @@ class DiagnosticsSheet extends StatelessWidget {
                       ),
                       title: 'Accessibility service',
                       trailing: Icon(
-                        PhosphorIcons.caretRight(),
+                        PhosphorIcons.caretRight,
                         color: NothingTheme.txtMuted(context),
                         size: 16,
                       ),
@@ -88,7 +88,7 @@ class DiagnosticsSheet extends StatelessWidget {
                       ),
                       title: 'Draw over other apps',
                       trailing: Icon(
-                        PhosphorIcons.caretRight(),
+                        PhosphorIcons.caretRight,
                         color: NothingTheme.txtMuted(context),
                         size: 16,
                       ),
@@ -106,7 +106,7 @@ class DiagnosticsSheet extends StatelessWidget {
                       ),
                       title: 'Write system settings',
                       trailing: Icon(
-                        PhosphorIcons.caretRight(),
+                        PhosphorIcons.caretRight,
                         color: NothingTheme.txtMuted(context),
                         size: 16,
                       ),
@@ -124,7 +124,7 @@ class DiagnosticsSheet extends StatelessWidget {
                       ),
                       title: 'Do not disturb access',
                       trailing: Icon(
-                        PhosphorIcons.caretRight(),
+                        PhosphorIcons.caretRight,
                         color: NothingTheme.txtMuted(context),
                         size: 16,
                       ),
@@ -142,7 +142,7 @@ class DiagnosticsSheet extends StatelessWidget {
                       ),
                       title: 'Battery unrestricted',
                       trailing: Icon(
-                        PhosphorIcons.caretRight(),
+                        PhosphorIcons.caretRight,
                         color: NothingTheme.txtMuted(context),
                         size: 16,
                       ),

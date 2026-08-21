@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -65,7 +65,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints(),
                     icon: Icon(
-                      PhosphorIcons.arrowLeft(),
+                      PhosphorIcons.arrowLeft,
                       color: NothingTheme.txtPrimary(context),
                       size: 22,
                     ),
@@ -122,10 +122,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   children: [
                                     Icon(
                                       mode == ThemeMode.dark
-                                          ? PhosphorIcons.moon()
+                                          ? PhosphorIcons.moon
                                           : mode == ThemeMode.light
-                                              ? PhosphorIcons.sun()
-                                              : PhosphorIcons.deviceMobile(),
+                                              ? PhosphorIcons.sun
+                                              : PhosphorIcons.deviceMobile,
                                       size: 16,
                                       color: selected
                                           ? NothingTheme.pillActiveFg(context)
@@ -170,14 +170,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             MaterialPageRoute(builder: (_) => const UnlockScreen()),
                           ),
                           leading: Icon(
-                            PhosphorIcons.lockKeyOpen(),
+                            PhosphorIcons.lockKeyOpen,
                             color: NothingTheme.txtSecondary(context),
                             size: 18,
                           ),
                           title: 'Unlock key from Nothing OS',
                           subtitle: 'App Info · ADB · Shizuku',
                           trailing: Icon(
-                            PhosphorIcons.caretRight(),
+                            PhosphorIcons.caretRight,
                             color: NothingTheme.txtMuted(context),
                             size: 16,
                           ),
@@ -188,7 +188,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             builder: (_) => const DiagnosticsSheet(),
                           ),
                           leading: Icon(
-                            PhosphorIcons.info(),
+                            PhosphorIcons.info,
                             color: NothingTheme.txtSecondary(context),
                             size: 18,
                           ),
@@ -213,14 +213,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             MaterialPageRoute(builder: (_) => const AboutScreen()),
                           ),
                           leading: Icon(
-                            PhosphorIcons.info(),
+                            PhosphorIcons.info,
                             color: NothingTheme.txtSecondary(context),
                             size: 18,
                           ),
                           title: 'About buttonoo',
                           subtitle: '${AppInfo.versionLabel} · Bract Studio',
                           trailing: Icon(
-                            PhosphorIcons.caretRight(),
+                            PhosphorIcons.caretRight,
                             color: NothingTheme.txtMuted(context),
                             size: 16,
                           ),
@@ -228,14 +228,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         SlabTile(
                           onTap: _openMoreApps,
                           leading: Icon(
-                            PhosphorIcons.squaresFour(),
+                            PhosphorIcons.squaresFour,
                             color: NothingTheme.txtSecondary(context),
                             size: 18,
                           ),
                           title: 'More apps',
                           subtitle: 'Other things we have built',
                           trailing: Icon(
-                            PhosphorIcons.arrowUpRight(),
+                            PhosphorIcons.arrowUpRight,
                             color: NothingTheme.txtMuted(context),
                             size: 16,
                           ),
@@ -289,7 +289,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(width: 8),
         ],
         Icon(
-          PhosphorIcons.caretRight(),
+          PhosphorIcons.caretRight,
           color: NothingTheme.txtMuted(context),
           size: 16,
         ),
@@ -355,19 +355,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
           children: [
             _buildSocialIcon(
               context,
-              PhosphorIcons.redditLogo(),
+              PhosphorIcons.redditLogo,
               'https://www.reddit.com/r/bractstudio/',
             ),
             const SizedBox(width: 20),
             _buildSocialIcon(
               context,
-              PhosphorIcons.instagramLogo(),
+              PhosphorIcons.instagramLogo,
               'https://www.instagram.com/studio.bract',
             ),
             const SizedBox(width: 20),
             _buildSocialIcon(
               context,
-              PhosphorIcons.telegramLogo(),
+              PhosphorIcons.telegramLogo,
               'https://t.me/+95VoGv2FnbhiZjI1',
             ),
           ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../models/key_action.dart';
 import '../theme/nothing_theme.dart';
 import '../theme/nothing_type.dart';
@@ -19,7 +19,7 @@ class AppPickerScreen extends StatelessWidget {
           style: NothingType.doto(fontSize: 18, color: NothingTheme.txtPrimary(context)),
         ),
         leading: IconButton(
-          icon: Icon(PhosphorIcons.arrowLeft(), color: NothingTheme.txtPrimary(context)),
+          icon: Icon(PhosphorIcons.arrowLeft, color: NothingTheme.txtPrimary(context)),
           onPressed: () => Navigator.pop(context),
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 
 import '../../models/app_entry.dart';
 import '../../native/remapper_channel.dart';
@@ -72,7 +72,7 @@ class _AppListViewState extends State<AppListView> {
               hintText: 'Search apps',
               hintStyle: NothingType.archivo(fontSize: 14, color: NothingTheme.txtMuted(context)),
               prefixIcon: Icon(
-                PhosphorIcons.magnifyingGlass(),
+                PhosphorIcons.magnifyingGlass,
                 color: NothingTheme.txtMuted(context),
                 size: 18,
               ),

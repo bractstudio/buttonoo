@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../models/key_action.dart';
 import '../../native/remapper_channel.dart';
 import '../theme/nothing_theme.dart';
@@ -133,7 +133,7 @@ class _AppsColumnPickerScreenState extends State<AppsColumnPickerScreen> {
                 children: [
                   IconButton(
                     icon: Icon(
-                      PhosphorIcons.arrowLeft(),
+                      PhosphorIcons.arrowLeft,
                       color: NothingTheme.txtPrimary(context),
                       size: 22,
                     ),
@@ -201,7 +201,7 @@ class _AppsColumnPickerScreenState extends State<AppsColumnPickerScreen> {
                               child: Column(
                                 children: [
                                   Icon(
-                                    PhosphorIcons.squaresFour(),
+                                    PhosphorIcons.squaresFour,
                                     size: 36,
                                     color: NothingTheme.txtMuted(context),
                                   ),
@@ -272,14 +272,14 @@ class _AppsColumnPickerScreenState extends State<AppsColumnPickerScreen> {
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           IconButton(
-                                            icon: Icon(PhosphorIcons.arrowUp(), size: 16),
+                                            icon: Icon(PhosphorIcons.arrowUp, size: 16),
                                             color: idx > 0
                                                 ? NothingTheme.txtSecondary(context)
                                                 : NothingTheme.txtMuted(context),
                                             onPressed: idx > 0 ? () => _moveUp(idx) : null,
                                           ),
                                           IconButton(
-                                            icon: Icon(PhosphorIcons.arrowDown(), size: 16),
+                                            icon: Icon(PhosphorIcons.arrowDown, size: 16),
                                             color: idx < _packages.length - 1
                                                 ? NothingTheme.txtSecondary(context)
                                                 : NothingTheme.txtMuted(context),
@@ -289,7 +289,7 @@ class _AppsColumnPickerScreenState extends State<AppsColumnPickerScreen> {
                                           ),
                                           IconButton(
                                             icon: Icon(
-                                              PhosphorIcons.trash(),
+                                              PhosphorIcons.trash,
                                               size: 16,
                                               color: NothingTheme.accentRed,
                                             ),
@@ -310,7 +310,7 @@ class _AppsColumnPickerScreenState extends State<AppsColumnPickerScreen> {
                                 SlabTile(
                                   onTap: _addApp,
                                   leading: Icon(
-                                    PhosphorIcons.plus(),
+                                    PhosphorIcons.plus,
                                     color: NothingTheme.accentRed,
                                     size: 18,
                                   ),

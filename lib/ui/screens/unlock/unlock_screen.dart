@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../../models/status.dart';
 import '../../../native/remapper_channel.dart';
 import '../../theme/nothing_theme.dart';
@@ -132,7 +132,7 @@ class _UnlockScreenState extends State<UnlockScreen> with WidgetsBindingObserver
                 children: [
                   IconButton(
                     icon: Icon(
-                      PhosphorIcons.arrowLeft(),
+                      PhosphorIcons.arrowLeft,
                       color: NothingTheme.txtPrimary(context),
                       size: 22,
                     ),
@@ -301,7 +301,7 @@ class _UnlockScreenState extends State<UnlockScreen> with WidgetsBindingObserver
           style: NothingType.archivo(fontSize: 12, color: NothingTheme.txtMuted(context)),
         ),
       if (label != null) const SizedBox(width: 8),
-      Icon(PhosphorIcons.caretRight(), color: NothingTheme.txtMuted(context), size: 16),
+      Icon(PhosphorIcons.caretRight, color: NothingTheme.txtMuted(context), size: 16),
     ],
   );
 

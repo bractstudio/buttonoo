@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../models/app_entry.dart';
 import '../../models/key_action.dart';
 import '../../native/remapper_channel.dart';
@@ -39,7 +39,7 @@ class _ShortcutPickerScreenState extends State<ShortcutPickerScreen> {
           style: NothingType.doto(fontSize: 18, color: NothingTheme.txtPrimary(context)),
         ),
         leading: IconButton(
-          icon: Icon(PhosphorIcons.arrowLeft(), color: NothingTheme.txtPrimary(context)),
+          icon: Icon(PhosphorIcons.arrowLeft, color: NothingTheme.txtPrimary(context)),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -47,7 +47,7 @@ class _ShortcutPickerScreenState extends State<ShortcutPickerScreen> {
         showPackageName: false,
         onSelected: _openShortcuts,
         trailingBuilder: (context, _) =>
-            Icon(PhosphorIcons.caretRight(), color: NothingTheme.txtMuted(context), size: 16),
+            Icon(PhosphorIcons.caretRight, color: NothingTheme.txtMuted(context), size: 16),
       ),
     );
   }
@@ -98,7 +98,7 @@ class _ShortcutListScreenState extends State<_ShortcutListScreen> {
           style: NothingType.doto(fontSize: 18, color: NothingTheme.txtPrimary(context)),
         ),
         leading: IconButton(
-          icon: Icon(PhosphorIcons.arrowLeft(), color: NothingTheme.txtPrimary(context)),
+          icon: Icon(PhosphorIcons.arrowLeft, color: NothingTheme.txtPrimary(context)),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -150,7 +150,7 @@ class _ShortcutListScreenState extends State<_ShortcutListScreen> {
         final label = shortcut['shortLabel'] as String? ?? id;
 
         return ListTile(
-          leading: Icon(PhosphorIcons.arrowSquareOut(), color: NothingTheme.accentRed),
+          leading: Icon(PhosphorIcons.arrowSquareOut, color: NothingTheme.accentRed),
           title: Text(
             label,
             style: NothingType.archivo(

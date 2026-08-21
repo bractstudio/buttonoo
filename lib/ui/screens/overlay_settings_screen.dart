@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../../models/key_action.dart';
 import '../../models/overlay_config.dart';
 import '../../native/remapper_channel.dart';
@@ -131,7 +131,7 @@ class _OverlaySettingsScreenState extends State<OverlaySettingsScreen> with Widg
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints(),
                     icon: Icon(
-                      PhosphorIcons.arrowLeft(),
+                      PhosphorIcons.arrowLeft,
                       color: NothingTheme.txtPrimary(context),
                       size: 22,
                     ),
@@ -433,7 +433,7 @@ class _OverlaySettingsScreenState extends State<OverlaySettingsScreen> with Widg
           alignment: Alignment.center,
           children: [
             Icon(
-              PhosphorIcons.palette(),
+              PhosphorIcons.palette,
               size: 20,
               color: isCustom
                   ? NothingTheme.pillActiveFg(context)
@@ -555,7 +555,7 @@ class _CustomColorPickerState extends State<CustomColorPicker> {
           // Brightness Slider
           Row(
             children: [
-              Icon(PhosphorIcons.sunDim(), color: NothingTheme.txtSecondary(context), size: 18),
+              Icon(PhosphorIcons.sunDim, color: NothingTheme.txtSecondary(context), size: 18),
               Expanded(
                 child: Slider(
                   value: _brightness,
@@ -569,7 +569,7 @@ class _CustomColorPickerState extends State<CustomColorPicker> {
                   inactiveColor: NothingTheme.slab(context),
                 ),
               ),
-              Icon(PhosphorIcons.sun(), color: NothingTheme.txtSecondary(context), size: 18),
+              Icon(PhosphorIcons.sun, color: NothingTheme.txtSecondary(context), size: 18),
             ],
           ),
           const SizedBox(height: 16),
